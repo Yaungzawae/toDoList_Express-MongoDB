@@ -1,0 +1,35 @@
+<%- include("header") -%>
+
+<div class="box" id="heading">
+  <% if (today.includes("Sunday") || today.includes("Saturday")) { %>
+  <h1 style="color: red"><%= today %></h1>
+  <% } else { %>
+  <h1 style="color: blue"><%= today %></h1>
+  <% } %>
+</div>
+<div class="box">
+  
+  <% items.forEach((item)=>{ %>
+  <form action="/delete/<%= today %>" method="post">
+    <div class="item">
+      <input name="checkbox" value="<%= item._id %>" type="checkbox" onchange="this.form.submit()"/>
+      <p><%= item.data %></p>
+    </div>
+  </form>
+  <% }) %>
+
+  <div class="item">
+    <form action="/" method="post">
+      <input
+        name="task"
+        type="text"
+        placeholder="What's on your mind?"
+        autocomplete="off"
+        autofocus
+      />
+      <button name="button" type="submit" value="<%= today %>">+</button>
+    </form>
+  </div>
+
+  <%- include("footer") -%>
+</div>
