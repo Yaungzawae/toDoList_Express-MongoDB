@@ -1,11 +1,7 @@
 <%- include("header") -%>
 
 <div class="box" id="heading">
-  <% if (today.includes("Sunday") || today.includes("Saturday")) { %>
-  <h1 style="color: red"><%= today %></h1>
-  <% } else { %>
-  <h1 style="color: blue"><%= today %></h1>
-  <% } %>
+  <h1 style="color: white"><%= today %></h1>
 </div>
 <div class="box">
   
@@ -30,6 +26,5 @@
       <button name="button" type="submit" value="<%= today %>">+</button>
     </form>
   </div>
-
-  <%- include("footer") -%>
 </div>
+<%- include("footer") -%>
